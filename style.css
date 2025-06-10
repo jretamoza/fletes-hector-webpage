@@ -1,0 +1,258 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f7f6; /* Soft light gray-green */
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+}
+
+header {
+    background-color: #A2D2FF; /* Light Sky Blue */
+    color: #fff;
+    padding: 1.5rem 0;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    font-size: 2.5rem;
+    font-weight: 500;
+}
+
+main {
+    flex: 1; /* Allows main to grow and push footer down */
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+#planner-area {
+    margin-bottom: 2rem;
+}
+
+#notes-area h2 {
+    font-size: 1.5rem;
+    color: #555;
+    margin-bottom: 0.75rem;
+    border-bottom: 2px solid #A2D2FF; /* Light Sky Blue accent */
+    padding-bottom: 0.5rem;
+}
+
+#notes-input {
+    width: 100%;
+    min-height: 100px;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: inherit;
+    font-size: 1rem;
+    resize: vertical; /* Allow vertical resizing */
+}
+
+#notes-input:focus {
+    outline: none;
+    border-color: #BDE0FE; /* Lighter blue for focus */
+    box-shadow: 0 0 5px rgba(162, 210, 255, 0.5);
+}
+
+footer {
+    text-align: center;
+    padding: 1.5rem 0;
+    background-color: #333;
+    color: #f4f7f6;
+    font-size: 0.9rem;
+}
+
+/* Add to existing style.css */
+
+#planner-area h2 {
+    font-size: 1.5rem;
+    color: #555;
+    margin-bottom: 1rem; /* Increased margin */
+    border-bottom: 2px solid #A2D2FF;
+    padding-bottom: 0.5rem;
+}
+
+#task-input-container {
+    display: flex;
+    margin-bottom: 1.5rem; /* Increased margin */
+}
+
+#task-input {
+    flex-grow: 1;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 5px 0 0 5px; /* Rounded left corners */
+    font-size: 1rem;
+}
+
+#task-input:focus {
+    outline: none;
+    border-color: #BDE0FE;
+    box-shadow: 0 0 5px rgba(162, 210, 255, 0.5);
+}
+
+#add-task-btn {
+    padding: 0.75rem 1.5rem;
+    background-color: #BDE0FE; /* Lighter blue */
+    color: #333; /* Darker text for better contrast */
+    border: 1px solid #A2D2FF; /* Border to match focus */
+    border-left: none; /* Remove left border as it's adjacent to input */
+    border-radius: 0 5px 5px 0; /* Rounded right corners */
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+}
+
+#add-task-btn:hover {
+    background-color: #A2D2FF; /* Slightly darker on hover */
+    color: #fff;
+}
+
+#task-list {
+    list-style: none;
+    padding: 0;
+}
+
+/* Styles for task items (updated from basic) */
+.task-item {
+    background-color: #FEF9EF;
+    padding: 0.85rem 1.25rem; /* Slightly more padding */
+    border: 1px solid #E0E0E0;
+    border-left: 5px solid #A2D2FF; /* Accent border */
+    border-radius: 5px;
+    margin-bottom: 0.75rem; /* Increased margin */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.2s ease;
+}
+
+.task-item:hover {
+    background-color: #FDF5E6; /* Slightly darker cream on hover */
+}
+
+.task-item.completed span {
+    text-decoration: line-through;
+    color: #aaa;
+}
+
+.task-item .actions button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-left: 0.5rem;
+    font-size: 1.1rem; /* Slightly larger icons/buttons */
+    padding: 0.3rem;
+    border-radius: 4px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.task-item .actions .complete-btn {
+    color: #28a745; /* Green */
+}
+.task-item .actions .complete-btn:hover {
+    background-color: #e6f7ec;
+}
+
+.task-item .actions .delete-btn {
+    color: #dc3545; /* Red */
+}
+.task-item .actions .delete-btn:hover {
+    background-color: #fdecea;
+}
+
+/* Media Queries for Responsiveness */
+
+/* For tablets and smaller desktops */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    main {
+        margin: 1.5rem auto;
+        padding: 1rem;
+    }
+
+    #task-input-container {
+        flex-direction: column;
+    }
+
+    #task-input {
+        border-radius: 5px; /* Full radius when stacked */
+        margin-bottom: 0.5rem;
+    }
+
+    #add-task-btn {
+        border-radius: 5px; /* Full radius when stacked */
+        border-left: 1px solid #A2D2FF; /* Add back border */
+    }
+
+    .task-item {
+        padding: 0.75rem 1rem;
+    }
+
+    .task-item .actions button {
+        font-size: 1rem;
+        margin-left: 0.4rem;
+    }
+}
+
+/* For mobile phones */
+@media (max-width: 480px) {
+    header {
+        padding: 1rem 0;
+    }
+
+    header h1 {
+        font-size: 1.8rem;
+    }
+
+    main {
+        margin: 1rem 0.5rem; /* More margin for small screens */
+        padding: 0.75rem;
+    }
+
+    #planner-area h2, #notes-area h2 {
+        font-size: 1.3rem;
+    }
+
+    #task-input, #add-task-btn, #notes-input {
+        font-size: 0.95rem;
+    }
+
+    #add-task-btn {
+        padding: 0.6rem 1rem;
+    }
+
+    .task-item {
+        font-size: 0.9rem;
+        padding: 0.6rem 0.8rem;
+        border-left-width: 4px;
+    }
+
+    .task-item .actions button {
+        font-size: 0.9rem;
+        padding: 0.2rem;
+    }
+
+    footer {
+        padding: 1rem 0;
+        font-size: 0.8rem;
+    }
+}
